@@ -35,7 +35,7 @@ const ServiceCard = ({data}) => {
             <p className='font-poppins text-sm'>Facilities: <span className='bg-[#12CBC4] font-extralight rounded-lg py-1 px-3'>{facilities[0]}</span></p>
             <hr />
             <div className="card-actions">
-              <Link to={`/${id}`} className="btn btn-primary">{button_text}</Link>
+              <Link to={`/details/${id}`} className="btn btn-primary">{button_text}</Link>
             </div>
           </div>
         </div>

@@ -6,7 +6,7 @@ const UseFetchData = (url) => {
         fetch(url)
         .then(res=>res.json())
         .then(data=>setAllData(data))
-    },[allData])
+    },[])
     return {allData}
 };
 
