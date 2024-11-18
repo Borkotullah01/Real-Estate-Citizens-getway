@@ -37,7 +37,7 @@ const Navbar = () => {
                 {navLinks}
               </ul>
             </div>
-            <a className="btn btn-ghost pl-0 text-xl text-white">
+            <a className="mr-4 text-xl text-white">
             <img className='w-11 h-11 rounded-full' src={logoT} alt="" />
             </a>
             <Typed strings={['Citizens', 'Gateway']}></Typed>

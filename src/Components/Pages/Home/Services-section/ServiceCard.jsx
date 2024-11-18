@@ -16,26 +16,27 @@ const ServiceCard = ({data}) => {
         button_text} = data;
     console.log(data);
     return (
-        <div className="card bg-base-100 shadow-xl border-[1px] border-white hover:border-primary">
+        <div className="card bg-base-100 shadow-xl border-[1px] border-gray-100 hover:border-primary">
           <figure className="px-6 pt-6">
             <img
               src={image}
               alt="Shoes"
               className="rounded-xl w-full h-[300px] md:h-[200px]" />
           </figure>
-          <div className="card-body px-6">
+          <div className="card-body px-6 pb-6">
             <h2 className="card-title text-2xl font-cinzel">{estate_title}</h2>
-            <p className='font-poppins text-sm'>Segment Type: <span className='bg-[#12CBC4] font-extralight rounded-lg py-1 px-3'>{segment_name}</span></p>
+            <p className='font-poppins text-sm'>Segment Type: <span className='bg-[#cafbc264] font-extralight rounded-lg py-1 px-3'>{segment_name}</span></p>
             <hr />
-            <div className="flex justify-between">
+            <div className="flex w-full justify-between">
             <p className='font-poppins text-sm'>Status: <span className='font-extralight'>{status}</span></p>
-            <p className='font-poppins text-sm'>Location: <span className='font-extralight'>{location}</span></p>
+            <p className='font-poppins text-sm text-end'>Location: <span className='font-extralight'>{location}</span></p>
             </div>
             <hr />
-            <p className='font-poppins text-sm'>Facilities: <span className='bg-[#12CBC4] font-extralight rounded-lg py-1 px-3'>{facilities[0]}</span></p>
+            <p className='font-poppins text-sm'>Facilities: <span className='bg-[#f1d1504e] font-extralight rounded-lg py-1 px-3'>{facilities[0]}</span> <span className='bg-[#1278cb3a] font-extralight rounded-lg py-1 px-3'>{facilities[1]}</span></p>
             <hr />
-            <div className="card-actions">
-              <Link to={`/details/${id}`} className="btn btn-primary">{button_text}</Link>
+            <div className="mt-6 card-actions justify-between">
+              <span className="px-4 py-2 rounded-md bg-[#1278cb17]">{price}</span>
+              <Link to={`/details/${id}`} className="px-4 py-2 rounded-md text-white bg-[#33a1fb]">See Details</Link>
             </div>
           </div>
         </div>

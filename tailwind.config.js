@@ -8,8 +8,18 @@ export default {
     extend: {
       fontFamily: {
         cinzel: ['Cinzel', 'serif'],
-        poppins: ['Poppins', 'sans-serif']
+        poppins: ['Montserrat', 'sans-serif']
+
       },
+      colors: {
+        primary : '#7f22f9e4',
+        primaryLight: '#7f22f9e4',
+        accent: {
+          light: '#994cfe5e',
+          DEFAULT: '#7f22f9e4',
+          dark: '#4e04ae',
+        },
+      }
     },
   },
   plugins: [
