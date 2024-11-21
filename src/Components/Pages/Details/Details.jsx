@@ -1,14 +1,15 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import UseFetchData from "../../../Routes/utils/FetchData/UseFetchData";
 import { useEffect, useState } from "react";
 import { GiMoneyStack } from "react-icons/gi";
 import { TiLocationOutline } from "react-icons/ti";
 import { GrStatusGood } from "react-icons/gr";
+import { saveIds } from "../../../Routes/utils/LocalStorage/LocalStorage";
 
 const Details = () => {
     const { id } = useParams();
     const [matchData, setMatchData] = useState(null);
-    const { allData } = UseFetchData('https://raw.githubusercontent.com/Borkotullah01/My-all-api/refs/heads/main/rs-api.json');
+    const allData = UseFetchData('https://raw.githubusercontent.com/Borkotullah01/My-all-api/refs/heads/main/rs-api.json');
     console.log('matchData',matchData);
     useEffect(() => {
         // Check if allData exists and find the item with matching id
@@ -46,7 +47,7 @@ const Details = () => {
           </div>
         </h1>
         <div className="flex pt-4 justify-end">
-            <button className="btn">{matchData.button_text}</button>
+            <Link onClick={()=>saveIds(id)} className="btn btn-outline border-primary text-primary rounded-full hover:bg-primary">{matchData.button_text}</Link>
             </div>
       </div>
     </div>

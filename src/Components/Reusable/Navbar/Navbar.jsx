@@ -7,6 +7,7 @@ const Navbar = () => {
 
   const navLinks = <>
   <li><NavLink to={'/'}>Home</NavLink></li>
+  <li><NavLink to={'/order'}>Order</NavLink></li>
   <li><NavLink to={'/user-profile'}>User Profile</NavLink></li>
   <li><NavLink to={'/support'}>Support</NavLink></li>
   <li><NavLink to={'/contact'}>Contact</NavLink></li>
@@ -48,7 +49,7 @@ const Navbar = () => {
             </ul>
           </div>
           <div className="navbar-end">
-            <a className="btn  btn-secondary hover:bg-[black] text-base text-white">Login</a>
+            <a className="btn bg-accent hover:bg-accent-dark text-base text-white">Login</a>
           </div>
         </div>
       </div>

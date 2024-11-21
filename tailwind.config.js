@@ -12,6 +12,8 @@ export default {
 
       },
       colors: {
+        active: "#4e04ae",
+        inactive: "#6b7280",
         primary : '#7f22f9e4',
         primaryLight: '#7f22f9e4',
         accent: {

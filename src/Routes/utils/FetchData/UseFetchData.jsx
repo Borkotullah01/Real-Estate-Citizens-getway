@@ -7,7 +7,7 @@ const  UseFetchData = (url) => {
         .then(res=>res.json())
         .then(data=>setAllData(data))
     },[])
-    return {allData}
+    return allData
 };
 
 export default UseFetchData;
