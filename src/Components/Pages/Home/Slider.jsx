@@ -117,6 +117,9 @@ const Slider = () => {
 
     return (
         <Swiper
+            data-aos="zoom-in-up"
+            data-aos-duration="1500"
+            data-aos-easing="ease"
             modules={[Navigation, Pagination, Autoplay]}
             spaceBetween={30}
             slidesPerView={1}

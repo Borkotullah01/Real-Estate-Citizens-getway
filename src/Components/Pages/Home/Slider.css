@@ -1,9 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-
 .swiper-container, .swiper-slide {
     width: 100%;
-    height: 90vh; /* Adjust height as needed */
+    height: 90vh; /* Default height for large devices */
 }
 
 .slider-image {
@@ -23,10 +22,11 @@
     background: rgba(0, 0, 0, 0.5);
     padding: 20px;
     border-radius: 8px;
+    max-width: 80%;
 }
 
 .slide-title {
-    font-size: 42px;
+    font-size: 42px; /* Default font size for large devices */
     font-weight: bold;
     margin-bottom: 10px;
     font-family: "Cinzel", serif;
@@ -35,7 +35,7 @@
 }
 
 .slide-description {
-    font-size: 16px;
+    font-size: 16px; /* Default font size for large devices */
     margin-bottom: 15px;
     font-family: "Poppins", serif;
     font-weight: 400;
@@ -53,3 +53,48 @@
     font-weight: 400;
     font-style: normal;
 }
+
+/* Medium Devices (Tablets) */
+@media (max-width: 1024px) {
+    .swiper-container, .swiper-slide {
+        height: 75vh; /* Adjust height for medium devices */
+    }
+
+    .slide-title {
+        font-size: 36px; /* Smaller title font size */
+    }
+
+    .slide-description {
+        font-size: 14px; /* Smaller description font size */
+    }
+
+    .slide-button {
+        padding: 8px 16px; /* Adjust button padding */
+    }
+}
+
+/* Small Devices (Phones) */
+@media (max-width: 640px) {
+    .swiper-container, .swiper-slide {
+        height: 60vh; /* Adjust height for small devices */
+    }
+
+    .slide-overlay {
+        padding: 15px; /* Reduce overlay padding */
+        max-width: 90%; /* Ensure content fits on smaller screens */
+    }
+
+    .slide-title {
+        font-size: 28px; /* Smaller title font size */
+    }
+
+    .slide-description {
+        font-size: 12px; /* Smaller description font size */
+    }
+
+    .slide-button {
+        padding: 6px 12px; /* Further adjust button padding */
+        font-size: 14px; /* Smaller button text */
+    }
+}
+

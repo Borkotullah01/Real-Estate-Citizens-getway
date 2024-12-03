@@ -1,16 +1,19 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import logoT from './../../../assets/Logo-Real-Black.png';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import Typed from '../Typed/Typed';
+import { AuthContext } from '../../../Provider/FirebaseProvider/FirebaseProvider';
 
 const Navbar = () => {
 
+  const {user, logOut} = useContext(AuthContext);
+
   const navLinks = <>
   <li><NavLink to={'/'}>Home</NavLink></li>
-  <li><NavLink to={'/order'}>Order</NavLink></li>
+  {user && <li><NavLink to={'/order'}>Order</NavLink></li>}
   <li><NavLink to={'/user-profile'}>User Profile</NavLink></li>
+  {user && <li><NavLink to={'/update-profile'}>Update Profile</NavLink></li>}
   <li><NavLink to={'/support'}>Support</NavLink></li>
-  <li><NavLink to={'/contact'}>Contact</NavLink></li>
   </>
 
     return (
@@ -38,18 +41,37 @@ const Navbar = () => {
                 {navLinks}
               </ul>
             </div>
-            <a className="mr-4 text-xl text-white">
+            <a className="mr-4 text-xl hidden md:block text-white">
             <img className='w-11 h-11 rounded-full' src={logoT} alt="" />
             </a>
-            <Typed strings={['Citizens', 'Gateway']}></Typed>
+            <Typed className='hidden md:block' strings={['Citizens', 'Gateway']}></Typed>
           </div>
           <div className="navbar-center hidden lg:flex">
             <ul className="menu gap-1 menu-horizontal px-1 text-base text-white">
               {navLinks}
             </ul>
           </div>
-          <div className="navbar-end">
-            <a className="btn bg-accent hover:bg-accent-dark text-base text-white">Login</a>
+          <div className="gap-3 navbar-end">
+          <div className="dropdown dropdown-end">
+              <div className="tooltip tooltip-bottom capitalize" data-tip={user?.displayName}>
+              <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                <div className="w-10 rounded-full">
+                  <img
+                    alt="Tailwind CSS Navbar component"
+                    src={user?.photoURL ? user?.photoURL : "https://cdn-icons-png.flaticon.com/512/6596/6596121.png" } />
+                </div>
+              </div>
+              </div>
+            </div>
+            {user ? <Link 
+            onClick={()=>{
+              logOut()
+              .then(()=>console.log("Sign-out successful."))
+              .catch((error)=>console.log(error.code))
+            }}
+            className="btn bg-accent hover:bg-accent-dark text-sm md:text-base text-white">
+              Logout
+            </Link> : <Link to={"/login"} className="btn bg-accent hover:bg-accent-dark text-base text-white">Login</Link>}
           </div>
         </div>
       </div>
