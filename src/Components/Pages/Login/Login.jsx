@@ -5,13 +5,15 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Provider/FirebaseProvider/FirebaseProvider';
 import { toast } from 'react-toastify';
 import {Helmet} from "react-helmet";
+import { FcGoogle } from 'react-icons/fc';
+import { FaGithub } from 'react-icons/fa';
 
 const Login = () => {
     const [showPassword, setShowPassword] = useState(false);
     const navigate = useNavigate();
-    const {Login} = useContext(AuthContext);
+    const {Login, GoogleLogin, GithubLogin} = useContext(AuthContext);
     const location = useLocation();
-    console.log(location);
+    console.log(GoogleLogin);
 
     const {
       register,
@@ -29,6 +31,12 @@ const Login = () => {
       })
       .catch((error)=>console.log(error.code));
       toast.warn(errors.code);
+    }
+
+    const hangleSocialLogin = (loginFunctionName) => {
+        loginFunctionName()
+        .then((resul)=>console.log(resul.user))
+        .catch((error)=>console.log(error.code))
     }
 
     return (
@@ -88,7 +96,20 @@ const Login = () => {
                             </Link>
                         </h1>
                     </div>
+                    <div className="flex gap-3 items-center text-lg font-poppins onclick={}">
+                    <div className='bg-gray-200 w-full h-[3px]' />OR<div className='bg-gray-200 w-full h-[3px]' />
+                    </div>
                 </form>
+                <div className="form-control">
+                    <div className="flex gap-4 justify-center">
+                    <button onClick={()=>hangleSocialLogin(GoogleLogin)} className="btn btn-square text-3xl">
+                    <FcGoogle />
+                    </button>
+                    <button onClick={()=>hangleSocialLogin(GithubLogin)} className="btn btn-square text-3xl">
+                    <FaGithub />
+                    </button>
+                    </div>
+                </div>
             </div>
         </div>
     );
