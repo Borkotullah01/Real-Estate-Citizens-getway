@@ -13,6 +13,7 @@ const Register = () => {
     const [showConfirm, setShowConfirm] = useState(false);
     const {createUser} = useContext(AuthContext);
     const navigate = useNavigate();
+    const regex = /^(?=.*[A-Z])(?=.*[a-z]).*$/;
     const {
         register,
         handleSubmit,
@@ -21,6 +22,13 @@ const Register = () => {
     } = useForm();
 
     const onSubmit = (data) => {
+        if (data.password.length < 6) {
+            return toast.warn("Password mast be 6 charecter");
+        }
+        if (!regex.test(data.password)) {
+            return toast.warn("Your password must contain at least one uppercase and one lowercase letter.");
+        }
+        
         createUser(data.email, data.password)
         .then((result) => {
             updateProfile(auth.currentUser, {
